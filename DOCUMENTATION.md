@@ -139,11 +139,13 @@ devApplySettings(usePassphrase, deviceLabel, pinCodeReader)
 
 *Purpose:*
 
-Enable or disable the passphrase protection.
+Change parts of the device configuration.
 
 *Params:*
-- usePassphrase: Indicates if the passphrase protection must be enabled (true) or disable (false).
-- deviceLabel: Label to identify the device through application and/or device screen.
+- usePassphrase: Indicates if the passphrase protection must be enabled (true) or disable (false). Use `null` to
+not make changes to this configuration.
+- deviceLabel: Label to identify the device through application and/or device screen (32 characters or less). Use
+`null` to not make changes to this configuration.
 - pinCodeReader: [Auxiliary function to obtain the PIN.](#auxiliary-function-to-obtain-the-PIN)
 
 
@@ -151,10 +153,11 @@ Enable or disable the passphrase protection.
 
 A promise that receives a text string that depends on the result of the operation:
 - If the user cancels the operation (promise rejected): `Error: Action cancelled by user`.
+- If the label is too long (promise rejected): `Error: string overflow`.
 - If the operation ends correctly: `Settings applied`
 
 *Notes:*
-- A security alert must accepted in the hardware wallet for the operation to be completed.
+- One or more security alerts must accepted in the hardware wallet for the operation to be completed.
 - This function can be called even when the hardware wallet does not have a seed, but it is important
 to keep in mind that in that case the changes made with this function can be overwritten when
 adding a seed to the hardware wallet.

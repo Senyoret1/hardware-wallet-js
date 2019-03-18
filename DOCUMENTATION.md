@@ -287,7 +287,8 @@ asking for it very frequently).
 *Return value:*
 
 A promise that receives a text string that depends on the result of the operation:
-- If the hardware wallet alreadys has a mnemonic: `Generate Mnemonic operation failed or refused`.
+- If the hardware wallet already has a mnemonic or `wordCount` has an invalid value
+(promise rejected): `Error: Generate Mnemonic operation failed or refused`.
 - If the operation ends correctly: `Generate Mnemonic operation completed`.
 
 *Notes:*
@@ -354,8 +355,8 @@ asking for it very frequently).
 *Return value:*
 
 A promise that receives a text string that depends on the result of the operation:
-- If the wallet already has a mnemonic or the user cancels the operation (promise rejected):
-`Error: Expected WordAck after Button confirmation`.
+- If the wallet already has a mnemonic, the user cancels the operation or `wordCount` has an invalid value
+(promise rejected): `Error: Expected WordAck after Button confirmation`.
 - If the hardware wallet asks for a specific word and a different word is entered (promise rejected):
 `Error: Wrong word retyped`.
 - If the user enters a word that is not part of the dictionary (promise rejected):

@@ -22,9 +22,9 @@ or
 
 ### Build the protob files
 
-Enter to the the `protob` folder and run:
+Run:
 
-    make build-js
+    npm run make-protobuf-files
 
 ## Documentation
 

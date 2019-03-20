@@ -139,13 +139,13 @@ devApplySettings(usePassphrase, deviceLabel, pinCodeReader)
 
 *Purpose:*
 
-Change parts of the device configuration.
+Edit device configuration.
 
 *Params:*
-- usePassphrase: Indicates if the passphrase protection must be enabled (true) or disable (false). Use `null` to
-not make changes to this configuration.
-- deviceLabel: Label to identify the device through application and/or device screen (32 characters or less). Use
-`null` to not make changes to this configuration.
+- usePassphrase: Indicates if the passphrase protection must be enabled (true) or disable (false). If set to `null`
+this value will be ignored and the passphrase protection will remain unchanged.
+- deviceLabel: Label to identify the device through application and/or device screen (32 characters or less). If
+set to `null` this value will be ignored and the label will remain unchanged.
 - pinCodeReader: [Auxiliary function to obtain the PIN.](#auxiliary-function-to-obtain-the-PIN)
 
 
